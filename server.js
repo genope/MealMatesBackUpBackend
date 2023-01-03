@@ -58,7 +58,7 @@ const swaggerOptions = {
             contact: {
                 name: 'MealMate Team aka the one and only Hassen Mabrouk',
             },
-            servers: ['https://mealmate.azurewebsites.net'],
+            servers: ['http://localhost:9090'],
         },
     },
     apis: ['./Routes/*.js'],

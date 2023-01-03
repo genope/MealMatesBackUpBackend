@@ -5,9 +5,9 @@ export const addProposition = async (req, res) => {
     const { currentUser } = res.locals
     try {
         const proposition = await PropositionService.addProposition(
-            req.body.placeId,
-            currentUser._id,
-            req.body
+            currentUser?._id,
+            req.body.propostiondDate,
+            req.body.mates
         )
         res.status(200).send(proposition)
     } catch (error) {
