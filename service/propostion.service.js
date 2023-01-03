@@ -5,20 +5,20 @@ export const getPropositionById = async (id) => {
     return Proposition.findById(id)
 }
 
-export const addProposition = async (placeId, owner, userbody) => {
-    const getRestaurantByPlaceId = await placesService.getNearbyRestaurants(
-        placeId
-    )
+export const addProposition = async (owner, userbody) => {
+    // const getRestaurantByPlaceId = await placesService.getNearbyRestaurants(
+    //   placeId
+    //)
     // const getPhotos = await placesService.getRestaurantImages(
     //     getRestaurantByPlaceId.photos[0].photo_reference
     // )
     const proposition = {
         owner,
-        restaurantPlaceId: placeId,
-        restaurantAddress: getRestaurantByPlaceId.vicinity,
+        // restaurantPlaceId: placeId,
+        //restaurantAddress: getRestaurantByPlaceId.vicinity,
         // restaurantImages: [getPhotos],
-        userRatingsTotal: getRestaurantByPlaceId.user_ratings_total,
-        restaurantName: getRestaurantByPlaceId.name,
+        // userRatingsTotal: getRestaurantByPlaceId.user_ratings_total,
+        // restaurantName: getRestaurantByPlaceId.name,
         // location: {
         //     type: 'Point',
         //     coordinates: [
