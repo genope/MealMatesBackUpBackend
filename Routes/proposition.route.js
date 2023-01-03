@@ -12,35 +12,34 @@ const router = express.Router()
 
 /**
  * @swagger
- * /proposition/:
- *   get:
- *     summary: Get a list of propositions
+ * /proposition:
+ *  get:
  *     description: Use to request all propositions
  *     responses:
- *       "200":
+ *         '200':
+ *            description: A successful response
  */
 router.route('/').get(getPropositions)
 
 /**
  * @swagger
  * /proposition/{id}:
- *   post:
- *     summary: Get a list of proposition by id
- *     description: Add a proposition
+ *  get:
+ *     description: Get a list of proposition by id
  *     responses:
- *       "200":
+ *         '200':
+ *            description: A successful response
  */
 router.route('/:id').get(getProposition)
 
 /**
  * @swagger
  * /proposition/add:
- *   post:
- *     summary: Add a proposition
+ *  post:
  *     description: Add a proposition
  *     responses:
- *       "200":
- *
+ *         '200':
+ *            description: A successful response
  */
 router.route('/add').post(checkCurrentUser, addProposition)
 
