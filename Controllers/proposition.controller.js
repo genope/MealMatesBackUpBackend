@@ -2,12 +2,12 @@ import * as PropositionService from '../service/propostion.service.js'
 import haversine from 'haversine'
 
 export const addProposition = async (req, res) => {
+    console.log(res.locals)
     const { currentUser } = res.locals
     try {
         const proposition = await PropositionService.addProposition(
             currentUser?._id,
-            req.body.propostiondDate,
-            req.body.mates
+            req.body
         )
         res.status(200).send(proposition)
     } catch (error) {

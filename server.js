@@ -27,7 +27,7 @@ app.use('/places', placesRoutes)
 app.use('/restpassword', restauthRoutes)
 app.use('/uploadrestaurant', express.static('/uploads'))
 const hostname = process.env.DEVURL
-const port = process.env.PORT || 9090
+const port = process.env.PORT || 8090
 
 mongoose.set('debug', process.env.NODE_ENV === 'dev')
 mongoose.Promise = global.Promise
@@ -58,7 +58,7 @@ const swaggerOptions = {
             contact: {
                 name: 'MealMate Team aka the one and only Hassen Mabrouk',
             },
-            servers: ['http://localhost:9090'],
+            servers: ['http://localhost:8090'],
         },
     },
     apis: ['./Routes/*.js'],
