@@ -11,12 +11,12 @@ export function Register(req, res) {
         if (err) {
             return res.send({
                 success: false,
-                message: 'Failed to save the admin',
+                message: 'Failed to save admin',
             })
         }
         res.send({
             success: true,
-            message: 'admin Saved',
+            message: 'admin is Saved',
             admin,
         })
     })
