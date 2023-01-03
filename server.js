@@ -12,7 +12,8 @@ import * as dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import path from 'path'
 import { fileURLToPath } from 'url'
-
+import swaggerJSDoc from 'swagger-jsdoc'
+import swaggerUi from 'swagger-ui-express'
 dotenv.config()
 const app = express()
 app.use(express.json())
@@ -26,7 +27,7 @@ app.use('/places', placesRoutes)
 app.use('/restpassword', restauthRoutes)
 app.use('/uploadrestaurant', express.static('/uploads'))
 const hostname = process.env.DEVURL
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8082
 
 mongoose.set('debug', process.env.NODE_ENV === 'dev')
 mongoose.Promise = global.Promise
@@ -48,6 +49,22 @@ mongoose
 app.route('/').get((req, res) =>
     res.json({ message: 'Welcome to MealMate Api Server' }).status(200)
 )
+//SWAGGER
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: 'MealMate API',
+            description: 'MealMate API Information',
+            contact: {
+                name: 'MealMate Team aka the one and only Hassen Mabrouk',
+            },
+            servers: ['https://mealmate.azurewebsites.net'],
+        },
+    },
+    apis: ['./Routes/*.js'],
+}
+const swaggerDocs = swaggerJSDoc(swaggerOptions)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 const views = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(views)
