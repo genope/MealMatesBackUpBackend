@@ -16,7 +16,7 @@ export function Register(req, res) {
         }
         res.send({
             success: true,
-            message: 'admin is Saved',
+            message: 'save the admin',
             admin,
         })
     })
